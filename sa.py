@@ -1,4 +1,3 @@
-
 import os
 import sqlite3
 
@@ -45,7 +44,6 @@ def login():
                 session.permanent = True
                 session['loginned'] = 'Yes'
                 session['user_name'] = login
-                print(session)
                 return redirect('/')
             elif bd_pass != password:
                 return f'НЕВЕРНО'
@@ -66,12 +64,6 @@ def register():
             return redirect ('/')
         except sqlite3.IntegrityError:
             return 'ДА ТАКАЯ ЗАПИСЬ УЖЕ ЕСТЬ <a href=/register> РЕГИСТРАЦИЯ</a>'
-
-    
-
-
-
-    
 
 
 @app.route('/logout')
